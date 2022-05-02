@@ -138,21 +138,7 @@
       "apiVersion": "2019-09-01",
       "location": "[parameters('existingVnetLocation')]",
       "properties": {
-        "securityRules": [
-          {
-            "name": "default-allow-rdp",
-            "properties": {
-              "priority": 1000,
-              "sourceAddressPrefix": "*",
-              "protocol": "Tcp",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*"
-            }
-          }
-        ]
+        "securityRules": []
       }
     },
     {
@@ -167,7 +153,9 @@
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {}
+      "properties": {
+        "allowBlobPublicAccess": false
+      }
     },
     {
       "type": "Microsoft.Resources/deployments",
